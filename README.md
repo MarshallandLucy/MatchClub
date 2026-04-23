@@ -6,7 +6,7 @@
 - 学生可查看社团详情并一键提交报名意向
 - 可随时查看自己已投递的社团记录
 
-Vibe coding by Node
+- _Vibe coding by Node_
 ---
 
 ## 项目定位
