@@ -115,6 +115,11 @@ npm run preview
 1. 将默认分支设置为 `main`
 2. 在 GitHub 仓库 Settings → Pages 中启用 **GitHub Actions** 作为 Source
 3. push 到 `main` 后会自动构建并发布静态站点
+4. 工作流会自动注入 `VITE_BASE_PATH=/MatchClub/`，确保资源路径正确
+
+> 若页面空白，请优先检查：  
+> - Pages Source 是否为 **GitHub Actions**  
+> - 最新一次 `Deploy to GitHub Pages` 工作流是否成功
 
 ---
 

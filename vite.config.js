@@ -2,12 +2,15 @@ import { fileURLToPath, URL } from 'url';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
+const isProd = process.env.NODE_ENV === 'production';
+const repoBase = process.env.VITE_BASE_PATH || '/MatchClub/';
+
 // GitHub Pages friendly:
-// - HashRouter handles route refresh fallback
-// - relative base avoids hard-coded deployment paths
+// - production uses /<repo>/ base path
+// - local dev keeps root path
 export default defineConfig({
   plugins: [react()],
-  base: './',
+  base: isProd ? repoBase : '/',
   server: {
     host: '::',
     port: 8080,
