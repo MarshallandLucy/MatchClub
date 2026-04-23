@@ -29,9 +29,11 @@ jobs:
 
       - name: Install deps
         run: npm install
+        working-directory: ./rebuild
 
       - name: Build
         run: npm run build
+        working-directory: ./rebuild
         env:
           VITE_BASE_PATH: /MatchClub/
 
@@ -41,7 +43,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./rebuild/dist
 
   deploy:
     environment:

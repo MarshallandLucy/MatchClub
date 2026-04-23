@@ -1,6 +1,8 @@
 # MatchClub｜个性化社团推荐与报名系统
 
-一个面向校园场景的社团推荐网站：https://marshallandlucy.github.io/MatchClub/ （点开直接进入！）
+> 当前仓库已新增独立重建版项目：`rebuild/`（不依赖 nocode，专用于 GitHub Pages 部署）。
+
+一个面向校园场景的社团推荐网站：
 - 学生先填写个人信息与兴趣问卷
 - 系统基于匹配算法推荐最适合的社团（含匹配度与推荐理由）
 - 学生可查看社团详情并一键提交报名意向
@@ -65,19 +67,16 @@
 - 刷新页面后可保留用户状态，方便演示与迭代
 
 ### 7) 内置样例数据
-- 目前内置 **20 个社团** 的静态数据
+- 当前重建版内置 **8 个社团** 的静态数据
 - 每个社团包含：主标签、匹配维度值、活动信息、招新信息、评分与活跃度等
 
 ---
 
-## 技术栈
+## 技术栈（重建版）
 
 - **前端框架**：React 18 + Vite 5
-- **路由**：React Router（HashRouter）
-- **UI**：Tailwind CSS + Radix UI（shadcn 风格组件）
 - **状态与数据**：React Hooks + `localStorage`
-- **通知反馈**：Sonner
-- **图标**：lucide-react
+- **样式**：原生 CSS（无额外 UI 组件库依赖）
 
 > 当前版本已移除 no-code 构建插件依赖，采用标准 Vite 工程结构，便于直接托管到 GitHub 并通过 GitHub Pages 访问。
 
@@ -89,9 +88,10 @@
 - Node.js 18+
 - npm / yarn / pnpm（任选其一）
 
-### 2. 安装依赖
+### 2. 安装依赖（新项目在 `rebuild/` 目录）
 
 ```bash
+cd rebuild
 npm install
 ```
 
@@ -126,22 +126,16 @@ npm run preview
 ## 项目结构（核心）
 
 ```text
-src/
-├─ pages/
-│  └─ Index.jsx                    # 主页面（三步流程编排）
-├─ components/
-│  ├─ UserProfileForm.jsx          # 个人信息表单
-│  ├─ SurveyForm.jsx               # 多步骤问卷
-│  ├─ ClubFilter.jsx               # 社团筛选标签
-│  ├─ ClubCard.jsx                 # 社团卡片
-│  ├─ ClubDetailDialog.jsx         # 社团详情 + 投递意向
-│  └─ SubmittedClubsDialog.jsx     # 已投递记录
-├─ data/
-│  └─ clubs.js                     # 社团数据、标签与维度定义
-├─ lib/
-│  └─ recommendation.js            # 匹配算法与推荐逻辑
-└─ hooks/
-   └─ useLocalStorage.js           # 本地存储 Hook
+rebuild/
+├─ src/
+│  ├─ App.jsx                      # 三步流程 + 推荐 + 投递 + 已投递
+│  ├─ main.jsx                     # 入口
+│  ├─ styles.css                   # 轻量样式
+│  ├─ data/clubs.js                # 社团、分类、问卷数据
+│  └─ lib/recommendation.js        # 匹配算法
+├─ index.html
+├─ vite.config.js
+└─ package.json
 ```
 
 ---
