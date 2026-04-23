@@ -79,7 +79,7 @@
 - **通知反馈**：Sonner
 - **图标**：lucide-react
 
-> 当前版本以前端本地逻辑为主，适合快速原型与功能验证（Vibe Coding 阶段）。
+> 当前版本已移除 no-code 构建插件依赖，采用标准 Vite 工程结构，便于直接托管到 GitHub 并通过 GitHub Pages 访问。
 
 ---
 
@@ -107,6 +107,14 @@ npm run dev
 npm run build
 npm run preview
 ```
+
+### 5. GitHub Pages 部署
+
+仓库已提供 GitHub Actions 工作流：`.github/workflows/deploy-pages.yml`。  
+你只需要：
+1. 将默认分支设置为 `main`
+2. 在 GitHub 仓库 Settings → Pages 中启用 **GitHub Actions** 作为 Source
+3. push 到 `main` 后会自动构建并发布静态站点
 
 ---
 
